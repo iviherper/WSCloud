@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Este fichero servira para dar de alta todos nuestro objetos en el contexto 
+		de spring. Los objetos que creemos con "new" se daran de alta en la JVM, 
+		mientras que los objetos dados de alta aquí se darán en el contexto de Spring. 
+		Los objetos dados de alta en el contexto de spring son comunmente llamados 
+		"bean" para crear un objeto en spring usareremos la etiqueta "bean" -->
+	<bean class="Entidad.Persona" id="persona1"></bean>
+	<bean class="Entidad.Persona" id="persona2">
+		<property name="nombre" value="Jagris"></property>
+		<property name="edad" value="89"></property>
+		<property name="peso" value="700"></property>
+	</bean>
+
+	<bean id="personaPrototype" class="Entidad.Persona"
+		scope="prototype">
+		<property name="edad" value="18"></property>
+	</bean>
+
+	<bean id="listaPersonas" class="java.util.ArrayList"
+		scope="singleton"></bean>
+
+	<bean class="Entidad.Direccion" id="direccionPersona1">
+		<property name="tipoVia" value="Calle"></property>
+		<property name="nombreVia" value="el euro"></property>
+		<property name="ciudad" value="Alcanfran"></property>
+	</bean>
+
+	<bean class="Entidad.Persona" id="persona3">
+		<property name="nombre" value="Rompetechos"></property>
+		<property name="edad" value="45"></property>
+		<property name="peso" value="50"></property>
+		<property name="direccion" ref="direccionPersona1"></property>
+	</bean>
+</beans>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmnls:th=http://thymeleaf.org>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Pagina de inicio</h1>
+	<h2 th:text="${nombre}"></h2>
+	<hr/>
+	<h3 th:text="${fecha}"></h3>
+	<hr/>
+	<h3 th:text="${lista}"></h3>
+	<hr/>
+	<h3 th:each="valor : ${listas}">
+		<span th:text="${valor}"></span>
+	</h3>
+</body>
+</html>
